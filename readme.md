@@ -22,14 +22,16 @@ sudo apt-get -y install cuda-toolkit-12-6
 Install cuDNN.
 ```bash
 sudo apt install zlib1g
-sudo dpkg -i /mnt/c/Users/user/Downloads/cudnn-local-repo-ubuntu2204-8.8.1.3_1.0-1_amd64.deb
-sudo cp /var/cudnn-local-repo-*/cudnn-local-*-keyring.gpg /usr/share/keyrings/
-sudo apt update
-sudo apt -y install libcudnn8 libcudnn8-dev libcudnn8-samples
-cp -r /usr/src/cudnn_samples_v8/ ~/
-cd ~/cudnn_samples_v8/mnistCUDNN/
-make clean && make
-./mnistCUDNN
+```
+
+```bash
+wget https://developer.download.nvidia.com/compute/cudnn/9.4.0/local_installers/cudnn-local-repo-ubuntu2204-9.4.0_1.0-1_amd64.deb
+sudo dpkg -i cudnn-local-repo-ubuntu2204-9.4.0_1.0-1_amd64.deb
+sudo cp /var/cudnn-local-repo-ubuntu2204-9.4.0/cudnn-*-keyring.gpg /usr/share/keyrings/
+sudo apt-get update
+sudo apt-get -y install cudnn
+sudo apt-get -y install cudnn-cuda-11
+sudo apt-get -y install cudnn-cuda-12
 ```
 
 ```bash
